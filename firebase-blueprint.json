@@ -1,0 +1,113 @@
+{
+  "entities": {
+    "Contract": {
+      "title": "Contract",
+      "description": "Dados do contrato de locação",
+      "type": "object",
+      "properties": {
+        "locadores": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nome": { "type": "string" },
+              "nacionalidade": { "type": "string" },
+              "profissao": { "type": "string" },
+              "rg": { "type": "string" },
+              "orgaoEmissor": { "type": "string" },
+              "isNovoRG": { "type": "boolean" },
+              "cpf": { "type": "string" },
+              "cep": { "type": "string" },
+              "numero": { "type": "string" },
+              "bairro": { "type": "string" },
+              "cidade": { "type": "string" },
+              "estado": { "type": "string" },
+              "endereco": { "type": "string" }
+            }
+          }
+        },
+        "locataria": {
+          "type": "object",
+          "properties": {
+            "nome": { "type": "string" },
+            "tipo": { "type": "string", "enum": ["PF", "PJ"] },
+            "documento": { "type": "string" },
+            "rg": { "type": "string" },
+            "orgaoEmissor": { "type": "string" },
+            "isNovoRG": { "type": "boolean" },
+            "cep": { "type": "string" },
+            "numero": { "type": "string" },
+            "bairro": { "type": "string" },
+            "cidade": { "type": "string" },
+            "estado": { "type": "string" },
+            "endereco": { "type": "string" },
+            "representantes": { "type": "string" }
+          }
+        },
+        "imovel": {
+          "type": "object",
+          "properties": {
+            "cep": { "type": "string" },
+            "numero": { "type": "string" },
+            "bairro": { "type": "string" },
+            "cidade": { "type": "string" },
+            "estado": { "type": "string" },
+            "endereco": { "type": "string" },
+            "descricao": { "type": "string" },
+            "garagens": { "type": "string" }
+          }
+        },
+        "condicoes": {
+          "type": "object",
+          "properties": {
+            "prazoMeses": { "type": "number" },
+            "dataInicio": { "type": "string", "format": "date" },
+            "dataTermino": { "type": "string", "format": "date" },
+            "valorAluguel": { "type": "number" },
+            "diaPagamento": { "type": "number" },
+            "chavePix": { "type": "string" },
+            "bancoInfo": { "type": "string" }
+          }
+        },
+        "garantia": {
+          "type": "object",
+          "properties": {
+            "tipo": { "type": "string" },
+            "valor": { "type": "number" }
+          }
+        },
+        "corretor": {
+          "type": "object",
+          "properties": {
+            "nome": { "type": "string" },
+            "creci": { "type": "string" }
+          }
+        },
+        "ownerId": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["locadores", "locataria", "imovel", "condicoes", "ownerId"]
+    },
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Perfil do usuário",
+      "type": "object",
+      "properties": {
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "role": { "type": "string", "enum": ["corretor", "locador", "locatario"] }
+      }
+    }
+  },
+  "firestore": {
+    "/contracts/{contractId}": {
+      "schema": "Contract",
+      "description": "Coleção de contratos de locação"
+    },
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Coleção de perfis de usuários"
+    }
+  }
+}

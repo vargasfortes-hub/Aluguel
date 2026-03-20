@@ -1,0 +1,22 @@
+{
+  "name": "GeraContrato - Gestão de Locação",
+  "short_name": "GeraContrato",
+  "description": "Gerador de contratos de locação imobiliária profissional.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f5f0",
+  "theme_color": "#059669",
+  "icons": [
+    {
+      "src": "https://picsum.photos/seed/contract/192/192",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://picsum.photos/seed/contract/512/512",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
